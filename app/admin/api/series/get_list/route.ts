@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import client from "@/app/libs/client";
+import client from "@/libs/client/prisma";
 export async function GET(req: Request) {
   const data = await client?.series.findMany();
 

@@ -48,11 +48,14 @@ model Season {
 }
 
 model Episode {
-  id          Int                   @id
+  id          Int                   @id @default(autoincrement())
   thumnail    String
   title       String
   description String
   runningTime Int
+  vtt         String
+  episode     Int
+  videoId     String
   viewers     UserEpisodeProgress[]
   Season      Season                @relation(fields: [seasonId], references: [id])
   seasonId    Int

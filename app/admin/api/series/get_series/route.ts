@@ -1,11 +1,8 @@
 import { NextResponse } from "next/server";
 import client from "@/libs/client/prisma";
-export async function POST(req: Request) {
-  const json = await req.json();
 
-  const data = await client?.series
-    .create({ data: json })
-    .catch((err) => console.log(err));
+export async function GET(req: Request) {
+  const data = await client?.series.findMany();
 
   return NextResponse.json(
     { ok: data ? true : false, data },
